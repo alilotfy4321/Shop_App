@@ -9,13 +9,13 @@ List<OnBoardingModel> onBoardingList = [
         'Hello this is shop App provides more service \n for customer like cloth,dressing,glasses\n and more you can take alook for our proudcs.',
   ),
   OnBoardingModel(
-    headTilte: 'First Page',
+    headTilte: 'Second Page',
     image: 'assets/images/Capture2.PNG',
     bodyText:
         'Hello this is shop App provides more service \n for customer like cloth,dressing,glasses\n and more you can take alook for our proudcs.',
   ),
   OnBoardingModel(
-    headTilte: 'First Page',
+    headTilte: 'Third Page',
     image: 'assets/images/Capture3.PNG',
     bodyText:
         'Hello this is shop App provides more service \n for customer like cloth,dressing,glasses\n and more you can take alook for our proudcs.',

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 // ignore: non_constant_identifier_names
-Widget VSpace({double height = 20}) {
+Widget VSpace({double height = 30}) {
   return SizedBox(
     height: height,
   );

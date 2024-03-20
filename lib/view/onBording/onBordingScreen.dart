@@ -12,7 +12,7 @@ class OnBoardingScreen extends StatelessWidget {
   bool isLast = false;
   @override
   Widget build(BuildContext context) {
-    var boarderController = PageController();
+    var onboarderController = PageController();
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -29,7 +29,7 @@ class OnBoardingScreen extends StatelessWidget {
           Expanded(
             child: PageView.builder(
               physics: const BouncingScrollPhysics(),
-              controller: boarderController,
+              controller: onboarderController,
               itemBuilder: ((context, index) =>
                   CustomOnboardingItem(onBoardingList[index])),
               itemCount: onBoardingList.length,
@@ -47,21 +47,23 @@ class OnBoardingScreen extends StatelessWidget {
           Row(
             children: [
               SmoothPageIndicator(
-                controller: boarderController,
+                controller: onboarderController,
                 count: onBoardingList.length,
-                effect: const ExpandingDotsEffect(
-                  expansionFactor: 4,
-                  dotWidth: 10,
-                  spacing: 5,
-                ),
+                effect: SwapEffect(),
+                //  const ExpandingDotsEffect(
+                //   expansionFactor: 4,
+                //   dotWidth: 10,
+                //   spacing: 5,
+                // ),
               ),
               Spacer(),
               FloatingActionButton(
                 onPressed: () {
                   if (isLast) {
+                    //-----------------
                     navigateAndFinish(context, LoginPage());
                   } else {
-                    boarderController.nextPage(
+                    onboarderController.nextPage(
                         duration: const Duration(
                           seconds: 1,
                         ),

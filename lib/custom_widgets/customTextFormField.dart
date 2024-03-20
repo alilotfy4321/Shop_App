@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget CustomTextFormField({
   // ignore: prefer_const_constructors
-  IconData icon = Icons.phone,
+  IconData prefixicon = Icons.phone,
+  suffixIcon,
   double height = 40.0,
   double width = 300,
   double r = 15.0,
@@ -11,13 +13,14 @@ Widget CustomTextFormField({
   required TextEditingController controller,
   dynamic function,
   bool isLight = true,
+  bool ispasswordLock = false,
   var keyboardType,
 }) {
   return Container(
-    height: height,
-    width: width,
+    width: 300,
     child: TextFormField(
       keyboardType: keyboardType,
+      obscureText: ispasswordLock,
       controller: controller,
       onChanged: function,
       decoration: InputDecoration(
@@ -37,10 +40,11 @@ Widget CustomTextFormField({
           ),
         ),
         prefixIcon: Icon(
-          icon,
+          prefixicon,
           color: Colors.black,
           // color: isLight ? Colors.black : Colors.white,
         ),
+        suffixIcon: suffixIcon,
         hintText: hint,
         labelText: label,
       ),

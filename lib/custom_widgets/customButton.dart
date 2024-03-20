@@ -5,15 +5,19 @@ dynamic child;
 Widget CustomButton({
   @required child,
   double height = 40,
+  double width = 40,
   double radius = 20,
+  var color,
   required VoidCallback function,
 }) {
   return Container(
     height: height,
+    width: width,
     child: ElevatedButton(
       onPressed: function,
       child: child,
       style: ElevatedButton.styleFrom(
+        primary: color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius),
         ),
