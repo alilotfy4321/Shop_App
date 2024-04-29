@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Customscaffold extends StatelessWidget {
   final child;
-   Customscaffold({Key? key, this.child}) : super(key: key);
+  Customscaffold({Key? key, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,5 @@ class Customscaffold extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

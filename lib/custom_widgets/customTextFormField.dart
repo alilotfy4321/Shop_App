@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -50,7 +52,7 @@ Widget CustomTextFormField({
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'write any thing';
+          return 'fill this field';
         }
         return null;
       },

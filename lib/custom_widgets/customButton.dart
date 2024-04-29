@@ -17,7 +17,8 @@ Widget CustomButton({
       onPressed: function,
       child: child,
       style: ElevatedButton.styleFrom(
-        primary: color,
+        backgroundColor: color,
+        //primary: color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius),
         ),

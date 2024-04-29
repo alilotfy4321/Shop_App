@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:shop_app/constants/onboardingList.dart';
@@ -8,6 +8,7 @@ import 'package:shop_app/custom_widgets/vhSpace.dart';
 import 'package:shop_app/view/login/login.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+// ignore: must_be_immutable
 class OnBoardingScreen extends StatelessWidget {
   bool isLast = false;
   @override
@@ -20,7 +21,7 @@ class OnBoardingScreen extends StatelessWidget {
               onPressed: () {
                 navigateAndFinish(context, LoginPage());
               },
-              child: Text('skip'))
+              child: Text('skip')),
         ],
       ),
       body: SafeArea(

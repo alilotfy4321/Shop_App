@@ -10,7 +10,7 @@ ThemeData lightTheme = ThemeData(
     titleTextStyle: TextStyle(
       color: Colors.black,
     ),
-    backwardsCompatibility: false,
+    //backwardsCompatibility: false,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.dark,
       statusBarColor: Colors.white,
@@ -47,7 +47,7 @@ ThemeData darkTheme = ThemeData(
     titleTextStyle: TextStyle(
       color: Colors.blue,
     ),
-    backwardsCompatibility: false,
+    //backwardsCompatibility: false,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.light,
       statusBarColor: Colors.black,

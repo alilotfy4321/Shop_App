@@ -1,4 +1,5 @@
-import 'package:dio/dio.dart';
+// ignore_for_file: file_names
+
 import 'package:shop_app/model/onboarding.dart';
 
 List<OnBoardingModel> onBoardingList = [
