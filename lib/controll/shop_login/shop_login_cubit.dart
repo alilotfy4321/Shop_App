@@ -6,9 +6,12 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:shop_app/custom_widgets/Navigation.dart';
 import 'package:shop_app/model/shop_login_model.dart';
+import 'package:shop_app/network/local(sharedPref)/sharedpref.dart';
 import 'package:shop_app/network/remote(dio)/endPoints.dart';
 import 'package:shop_app/network/remote(dio)/shop_dio.dart';
+import 'package:shop_app/view/login/login.dart';
 
 part 'shop_login_state.dart';
 
@@ -45,5 +48,4 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
       emit(ShopLoginErrorState(e));
     });
   }
-  //----------------
 }

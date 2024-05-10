@@ -1,27 +1,38 @@
-// ignore_for_file: use_key_in_widget_constructors, unused_import
+// ignore_for_file: use_key_in_widget_constructors, unused_import, unused_local_variable, prefer_initializing_formals, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:shop_app/constants/onboardingList.dart';
+import 'package:shop_app/controll/shop_login/shop_login_cubit.dart';
 import 'package:shop_app/custom_widgets/Navigation.dart';
 import 'package:shop_app/custom_widgets/onBoarding/onBoardingItem.dart';
 import 'package:shop_app/custom_widgets/vhSpace.dart';
+import 'package:shop_app/network/local(sharedPref)/sharedpref.dart';
 import 'package:shop_app/view/login/login.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // ignore: must_be_immutable
 class OnBoardingScreen extends StatelessWidget {
   bool isLast = false;
+  void submitOnboardingPref(context) {
+    CachHelper.SaveUserKey('onboarding', true).then((value) {
+      if (value) {
+        navigateAndFinish(context, LoginPage());
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var onboarderController = PageController();
+
     return Scaffold(
       appBar: AppBar(
         actions: [
           TextButton(
               onPressed: () {
-                navigateAndFinish(context, LoginPage());
+                submitOnboardingPref(context);
               },
-              child: Text('skip')),
+              child: const Text('skip')),
         ],
       ),
       body: SafeArea(
@@ -61,8 +72,7 @@ class OnBoardingScreen extends StatelessWidget {
               FloatingActionButton(
                 onPressed: () {
                   if (isLast) {
-                    //-----------------
-                    navigateAndFinish(context, LoginPage());
+                    submitOnboardingPref(context);
                   } else {
                     onboarderController.nextPage(
                         duration: const Duration(

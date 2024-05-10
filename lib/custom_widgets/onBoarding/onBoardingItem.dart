@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:shop_app/custom_widgets/vhSpace.dart';
 import 'package:shop_app/model/onboarding.dart';
@@ -7,7 +9,7 @@ Widget CustomOnboardingItem(OnBoardingModel list) =>
       Center(
         child: Text(
           list.headTilte!,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
