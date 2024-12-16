@@ -7,6 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:shop_app/core/api/api_comsumer.dart';
+import 'package:shop_app/core/api/api_interceptor.dart';
 import 'package:shop_app/core/api/endPoints.dart';
 import 'package:shop_app/core/errors/exeptions.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/Navigation.dart';
@@ -31,25 +32,21 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
 
   //------------------------------api login -------------
   ShopLoginModel? loginModel;
-  var decodedToken;
-  var decodedTokenId;
+  
   userLogin({required email, required password}) async {
     emit(ShopLoginLoadingState());
-
     try {
-      final response = await api.post(
+      var response = await api.post(
         EndPoint.login,
         data: {
           AppKeys.signInEmail: email,
           AppKeys.signInPassword: password,
         },
-        isFormData: false,
       );
-      loginModel = ShopLoginModel.fromJson(response);
-
-      decodedToken = loginModel!.data!.token;
-      CachHelper.SaveUserCacheKey('token', decodedToken);
-      emit(ShopLoginSuccesState(loginModel!));
+      
+      loginModel = ShopLoginModel.fromJson(response.data);
+      
+      emit(ShopLoginSuccesState(loginModel));
     } on ServerExeptions catch (e) {
       emit(ShopLoginErrorState(e.errorModel.errorMessage));
     }

@@ -1,39 +1,50 @@
-// ignore_for_file: unnecessary_new, prefer_collection_literals, unnecessary_this, unused_local_variable
+// ignore_for_file: unnecessary_this, prefer_collection_literals
 
 class ShopLoginModel {
   bool? status;
   String? message;
-  UserData? data;
+  Data? data;
+
   ShopLoginModel({this.status, this.message, this.data});
+
   ShopLoginModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? UserData.fromJson(json['data']) : null;
+    data = json['data'] != null ?  Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    Map<String, dynamic> infoData = new Map<String, dynamic>();
-    infoData['status'] = status;
-    infoData['message'] = message;
+    final Map<String, dynamic> data =  Map<String, dynamic>();
+    data['status'] = this.status;
+    data['message'] = this.message;
     if (this.data != null) {
-      infoData['data'] = this.data!.toJson();
+      data['data'] = this.data!.toJson();
     }
-
-    return infoData;
+    return data;
   }
 }
 
-class UserData {
- int? id;
+class Data {
+  int? id;
   String? name;
   String? email;
   String? phone;
   String? image;
-  int?points;
+  int? points;
   int? credit;
   String? token;
-  
-  UserData.fromJson(Map<String, dynamic> json) {
+
+  Data(
+      {this.id,
+      this.name,
+      this.email,
+      this.phone,
+      this.image,
+      this.points,
+      this.credit,
+      this.token});
+
+  Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     email = json['email'];
@@ -45,7 +56,7 @@ class UserData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
     data['email'] = this.email;
@@ -57,18 +68,3 @@ class UserData {
     return data;
   }
 }
-
-/**{
-    "status": true,
-    "message": "تم تسجيل الدخول بنجاح",
-    "data": {
-        "id": 62831,
-        "name": "Ali lotfy",
-        "email": "alilotfy4321@gmail.com",
-        "phone": "0155453420",
-        "image": "https://student.valuxapps.com/storage/uploads/users/ifwGdeuAaT_1710510851.jpeg",
-        "points": 0,
-        "credit": 0,
-        "token": "CPAf2nlwGOaWgX5PxAj86u7Fa3Bp5igR4zkCs32XKpEM9DwfWJAKfTG47cvYDqDgIDjoFG"
-    }
-} */

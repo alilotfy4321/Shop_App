@@ -19,7 +19,7 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
 bool isLast = false;
   void submitOnboardingPref(context) {
-    CachHelper.SaveUserCacheKey('onboarding', true).then((value) {
+    CachHelper.saveUserCacheKey('onboarding', true).then((value) {
       if (value) {
         navigateAndFinish(context, LoginPage());
       }

@@ -7,8 +7,9 @@ class ShopLoginInitialState extends ShopLoginStates {}
 
 class ShopLoginLoadingState extends ShopLoginStates {}
 
+// ignore: must_be_immutable
 class ShopLoginSuccesState extends ShopLoginStates {
-  final ShopLoginModel loginModel;
+   ShopLoginModel? loginModel;
   ShopLoginSuccesState(this.loginModel);
 
 }

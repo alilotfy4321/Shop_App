@@ -1,3 +1,4 @@
+
 abstract class ApiConsumer {
   Future<dynamic>get(
     String path, {
@@ -5,7 +6,7 @@ abstract class ApiConsumer {
     Map<String, dynamic>? queryParameter,
     bool isFormData=false,
   });
-  Future<dynamic> post(
+  Future <dynamic>post(
     String path, {
     dynamic data,
     Map<String, dynamic>? queryParameter,

@@ -25,13 +25,13 @@ class DioConsumer extends ApiConsumer {
       Map<String, dynamic>? queryParameter,
       bool isFormData = false}) async {
     try {
-      final respose = await dio.delete(
+      final response = await dio.delete(
         path,
         data: (isFormData) ? FormData.fromMap(data) : data,
         queryParameters: queryParameter,
       );
 
-      print(respose.data);
+      return response;
     } on DioException catch (e) {
       handelDioExeptions(e);
     }
@@ -43,13 +43,13 @@ class DioConsumer extends ApiConsumer {
       Map<String, dynamic>? queryParameter,
       bool isFormData = false}) async {
     try {
-      final respose = await dio.get(
+      final response = await dio.get(
         path,
         data: data,
         queryParameters: queryParameter,
       );
 
-      print(respose.data);
+      return response;
     } on DioException catch (e) {
       handelDioExeptions(e);
     }
@@ -61,13 +61,13 @@ class DioConsumer extends ApiConsumer {
       Map<String, dynamic>? queryParameter,
       bool isFormData = false}) async {
     try {
-      final respose = await dio.patch(
+      final response = await dio.patch(
         path,
         data: (isFormData) ? FormData.fromMap(data) : data,
         queryParameters: queryParameter,
       );
 
-      print(respose.data);
+      return response;
     } on DioException catch (e) {
       handelDioExeptions(e);
     }
@@ -78,14 +78,14 @@ class DioConsumer extends ApiConsumer {
       {dynamic data,
       Map<String, dynamic>? queryParameter,
       bool isFormData = false}) async {
+    //var response;
     try {
-      final respose = await dio.post(
+      final response = await dio.post(
         path,
         data: (isFormData) ? FormData.fromMap(data) : data,
         queryParameters: queryParameter,
       );
-
-    //  print(respose.data);
+      return response;
     } on DioException catch (e) {
       handelDioExeptions(e);
     }

@@ -1,15 +1,20 @@
-// ignore_for_file: unnecessary_overrides
-
 import 'package:dio/dio.dart';
 
 class ApiInterceptor extends Interceptor {
+   var interceptorResponse;
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    //----path header here
-    options.headers = {
-      'Content-Type': 'application/json',
-      
-    };
+    // Add custom headers
+    options.headers["lang"] = "en";
+
+    // Call the next handler
     super.onRequest(options, handler);
+  }
+
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    interceptorResponse = response.data;
+    print('response api iterceptor =$interceptorResponse');
+    super.onResponse(response, handler);
   }
 }

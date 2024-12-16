@@ -9,7 +9,7 @@ class CachHelper {
     prefs = await SharedPreferences.getInstance();
   }
 
-  static Future SaveUserCacheKey(String key, dynamic val) async {
+  static Future saveUserCacheKey(String key, dynamic val) async {
     if (val is String) {
       print('the setCachdValue is: $val');
       return await prefs.setString(key, val);

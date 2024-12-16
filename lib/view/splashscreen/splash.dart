@@ -3,19 +3,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/vhSpace.dart';
-import 'package:shop_app/view/login/login.dart';
 import 'package:shop_app/view/onBording/onBordingScreen.dart';
 
 class SplashScreen extends StatefulWidget {
-  final bool isOnboarding;
-  const SplashScreen(this.isOnboarding);
+  const SplashScreen();
   @override
-  _SplashScreenState createState() => _SplashScreenState(isOnboarding);
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final bool isOnboarding;
-  _SplashScreenState(this.isOnboarding);
+  _SplashScreenState();
   @override
   void initState() {
     super.initState();
@@ -23,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) {
-          return isOnboarding ? LoginPage() : OnBoardingScreen();
+          return  OnBoardingScreen();
         }),
       );
     });
