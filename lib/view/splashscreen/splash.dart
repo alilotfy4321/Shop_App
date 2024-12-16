@@ -2,24 +2,20 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:shop_app/custom_widgets/vhSpace.dart';
+import 'package:shop_app/shared_in_app/custom_widgets/vhSpace.dart';
 import 'package:shop_app/view/login/login.dart';
 import 'package:shop_app/view/onBording/onBordingScreen.dart';
 
 class SplashScreen extends StatefulWidget {
-  var isOnboarding;
-  SplashScreen(bool isOnboarding) {
-    this.isOnboarding = isOnboarding;
-  }
+  final bool isOnboarding;
+  const SplashScreen(this.isOnboarding);
   @override
   _SplashScreenState createState() => _SplashScreenState(isOnboarding);
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  var isOnboarding;
+  final bool isOnboarding;
   _SplashScreenState(this.isOnboarding);
-
   @override
   void initState() {
     super.initState();

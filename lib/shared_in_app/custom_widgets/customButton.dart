@@ -10,7 +10,7 @@ Widget CustomButton({
   var color,
   required VoidCallback function,
 }) {
-  return Container(
+  return SizedBox(
     height: height,
     width: width,
     child: ElevatedButton(

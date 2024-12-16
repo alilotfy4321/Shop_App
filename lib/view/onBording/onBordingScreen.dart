@@ -1,20 +1,25 @@
-// ignore_for_file: use_key_in_widget_constructors, unused_import, unused_local_variable, prefer_initializing_formals, prefer_typing_uninitialized_variables
+// ignore_for_file: use_key_in_widget_constructors, unused_import, unused_local_variable, prefer_initializing_formals, prefer_typing_uninitialized_variables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:shop_app/constants/onboardingList.dart';
+import 'package:shop_app/view/onBording/onboardingList.dart';
 import 'package:shop_app/controll/shop_login/shop_login_cubit.dart';
-import 'package:shop_app/custom_widgets/Navigation.dart';
-import 'package:shop_app/custom_widgets/onBoarding/onBoardingItem.dart';
-import 'package:shop_app/custom_widgets/vhSpace.dart';
-import 'package:shop_app/network/local(sharedPref)/sharedpref.dart';
+import 'package:shop_app/shared_in_app/custom_widgets/Navigation.dart';
+import 'package:shop_app/shared_in_app/custom_widgets/onBoarding/onBoardingItem.dart';
+import 'package:shop_app/shared_in_app/custom_widgets/vhSpace.dart';
+import 'package:shop_app/shared_in_app/sharedpref.dart';
 import 'package:shop_app/view/login/login.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // ignore: must_be_immutable
-class OnBoardingScreen extends StatelessWidget {
-  bool isLast = false;
+class OnBoardingScreen extends StatefulWidget {
+  @override
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+}
+
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+bool isLast = false;
   void submitOnboardingPref(context) {
-    CachHelper.SaveUserKey('onboarding', true).then((value) {
+    CachHelper.SaveUserCacheKey('onboarding', true).then((value) {
       if (value) {
         navigateAndFinish(context, LoginPage());
       }
@@ -45,13 +50,19 @@ class OnBoardingScreen extends StatelessWidget {
               itemBuilder: ((context, index) =>
                   CustomOnboardingItem(onBoardingList[index])),
               itemCount: onBoardingList.length,
-              onPageChanged: (i) {
-                if (i == onBoardingList.length - 1) {
-                  print('last');
-                  isLast = true;
+              onPageChanged: (index) {
+                if (index == onBoardingList.length - 1) {
+                  
+                  
+                  setState(() {
+                    isLast = true;
+                  });
                 } else {
-                  print(i);
-                  isLast = false;
+                  
+                  setState(() {
+                     isLast = false;
+                  });
+                  
                 }
               },
             ),
@@ -89,4 +100,5 @@ class OnBoardingScreen extends StatelessWidget {
       )),
     );
   }
+
 }

@@ -1,8 +1,9 @@
+
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 
-import 'package:shop_app/custom_widgets/vhSpace.dart';
+import 'package:shop_app/shared_in_app/custom_widgets/vhSpace.dart';
 
 Widget buildArticleItem(context, var list) =>
 // InkWell(
@@ -37,13 +38,13 @@ Widget buildArticleItem(context, var list) =>
                       '${list['title']}',
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                   VSpace(),
                   Text(
                     '${list['publishedAt']}',
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ],
               ),

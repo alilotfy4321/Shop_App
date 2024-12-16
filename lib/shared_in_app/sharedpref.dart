@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, curly_braces_in_flow_control_structures
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CachHelper {
@@ -7,7 +9,7 @@ class CachHelper {
     prefs = await SharedPreferences.getInstance();
   }
 
-  static Future SaveUserKey(String key, dynamic val) async {
+  static Future SaveUserCacheKey(String key, dynamic val) async {
     if (val is String) {
       print('the setCachdValue is: $val');
       return await prefs.setString(key, val);
@@ -17,9 +19,14 @@ class CachHelper {
     } else if (val is int) {
       print('the setCachdValue is: $val');
       return await prefs.setInt(key, val);
+    }else if (val is double) {
+      print('the setCachdValue is: $val');
+      return await prefs.setDouble(key, val);
     } else
-      return await false;
+      return false;
   }
 
-  static getUserValue({required String key}) => prefs.get(key);
+  static  getUserCachedValue({required String key}){
+    return  prefs.get(key);
+  } 
 }

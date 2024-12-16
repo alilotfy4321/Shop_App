@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, non_constant_identifier_names, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,8 +17,9 @@ Widget CustomTextFormField({
   bool isLight = true,
   bool ispasswordLock = false,
   var keyboardType,
+  
 }) {
-  return Container(
+  return SizedBox(
     width: 300,
     child: TextFormField(
       keyboardType: keyboardType,
@@ -28,11 +29,11 @@ Widget CustomTextFormField({
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        labelStyle: TextStyle(
+        labelStyle:const TextStyle(
           color: Colors.black,
           // color: isLight ? Colors.black : Colors.white,
         ),
-        hintStyle: TextStyle(
+        hintStyle:const TextStyle(
           color: Colors.black,
           // color: isLight ? Colors.black : Colors.white,
         ),

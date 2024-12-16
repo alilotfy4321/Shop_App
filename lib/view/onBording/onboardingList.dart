@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:shop_app/model/onboarding.dart';
+import 'package:shop_app/view/onBording/onboarding.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(

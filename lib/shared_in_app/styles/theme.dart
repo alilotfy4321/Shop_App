@@ -20,7 +20,7 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   textTheme: const TextTheme(
-    headline1: TextStyle(
+    headlineLarge: TextStyle(
       color: Colors.teal,
       fontSize: 20.0,
       fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ ThemeData lightTheme = ThemeData(
 );
 //-----------------dark theme --------------------
 ThemeData darkTheme = ThemeData(
-  scaffoldBackgroundColor: Color.fromARGB(255, 41, 35, 35),
+  scaffoldBackgroundColor:const Color.fromARGB(255, 41, 35, 35),
   appBarTheme: const AppBarTheme(
     color: Colors.grey,
     elevation: 0.0,
@@ -68,7 +68,7 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
   textTheme: const TextTheme(
-    headline1: TextStyle(
+    headlineLarge: TextStyle(
       color: Colors.white,
       fontSize: 20.0,
       fontWeight: FontWeight.bold,

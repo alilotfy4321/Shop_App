@@ -27,22 +27,24 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  cupertino_icons: ^1.0.2
-  dio: null
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
+  dio: null
   flutter_bloc: null
   fluttertoast: null
   font_awesome_flutter: null
+  image_picker: ^1.1.2
   onboarding: null
-  shared_preferences: ^2.2.3 
+  shared_preferences: ^2.2.3
   smooth_page_indicator: ^1.1.0
+  conditional_builder_null_safety:
+  flutter_keyboard_visibility: 
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
-
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

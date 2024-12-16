@@ -6,17 +6,21 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:shop_app/custom_widgets/Navigation.dart';
+import 'package:shop_app/core/api/api_comsumer.dart';
+import 'package:shop_app/core/api/endPoints.dart';
+import 'package:shop_app/core/errors/exeptions.dart';
+import 'package:shop_app/shared_in_app/custom_widgets/Navigation.dart';
 import 'package:shop_app/model/shop_login_model.dart';
-import 'package:shop_app/network/local(sharedPref)/sharedpref.dart';
-import 'package:shop_app/network/remote(dio)/endPoints.dart';
-import 'package:shop_app/network/remote(dio)/shop_dio.dart';
+import 'package:shop_app/shared_in_app/sharedpref.dart';
 import 'package:shop_app/view/login/login.dart';
 
 part 'shop_login_state.dart';
 
 class ShopLoginCubit extends Cubit<ShopLoginStates> {
-  ShopLoginCubit() : super(ShopLoginInitialState());
+  ShopLoginCubit(this.api) : super(ShopLoginInitialState());
+  //--------------------------
+  ApiConsumer api;
+  //--------------
   static ShopLoginCubit get(context) => BlocProvider.of(context);
   bool isPasswordLock = false;
 //----------------------------------
@@ -25,27 +29,29 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
     emit(ShopAppChangePasswordLockstate());
   }
 
-  //--------api-------------
+  //------------------------------api login -------------
   ShopLoginModel? loginModel;
-
-  //----------------------
+  var decodedToken;
+  var decodedTokenId;
   userLogin({required email, required password}) async {
     emit(ShopLoginLoadingState());
 
-    await DioHelper.postData(
-      path: LOGIN,
-      data: {
-        "email": "alilotfy4321@gmail.com",
-        "password": "123456",
-      },
-    ).then((value) {
-      print(value.data.toString());
-      loginModel = ShopLoginModel.fromJson(value.data);
-      print(loginModel!.message);
-      emit(ShopLoginSuccesState());
-    }).catchError((e) {
-      print(e.toString());
-      emit(ShopLoginErrorState(e));
-    });
+    try {
+      final response = await api.post(
+        EndPoint.login,
+        data: {
+          AppKeys.signInEmail: email,
+          AppKeys.signInPassword: password,
+        },
+        isFormData: false,
+      );
+      loginModel = ShopLoginModel.fromJson(response);
+
+      decodedToken = loginModel!.data!.token;
+      CachHelper.SaveUserCacheKey('token', decodedToken);
+      emit(ShopLoginSuccesState(loginModel!));
+    } on ServerExeptions catch (e) {
+      emit(ShopLoginErrorState(e.errorModel.errorMessage));
+    }
   }
 }
