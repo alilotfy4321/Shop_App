@@ -14,26 +14,27 @@ import 'package:shop_app/view/splashscreen/splash.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CachHelper.init();
-  bool isOnboarding = await CachHelper.getUserCachedValue(key: 'onboarding');
-  String token = await CachHelper.getUserCachedValue(key: 'token');
+  bool? isOnboarding = (await CachHelper.getUserCachedValue(key: 'onboarding'));
+  String? token = (await CachHelper.getUserCachedValue(key: 'token'));
   print('isOnboarding =$isOnboarding');
-  print('isOnboarding =$token');
+  print('token =$token');
   Widget widget;
-  if (isOnboarding) {
-    if (token != null)
+  if (isOnboarding == true) {
+    if (token != null) {
       widget = ShopHomeLayout();
-    else
+    } else {
       widget = LoginPage();
+    }
   } else {
     widget = SplashScreen();
   }
   Bloc.observer = MyBlocObserver();
-  runApp(MyApp(startWidget:widget));
+  runApp(MyApp(startWidget: widget));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  final  startWidget;
+  final startWidget;
 
   const MyApp({required this.startWidget});
 
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.light,
-      home: SplashScreen(),
+      home: startWidget,
     );
   }
 }

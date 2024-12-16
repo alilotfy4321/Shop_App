@@ -10,7 +10,10 @@ class ShopHomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('home layout',style: TextTheme.of(context).displayMedium!.copyWith(fontSize: 16),),),
+      appBar: AppBar(title: Text('home layout',),),
+      body: TextButton(onPressed: (){
+        
+      }, child: Text('Sign out'),),
     );
   }
 }
