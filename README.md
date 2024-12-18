@@ -2,7 +2,14 @@
 
 MyApp is a cross-platform app built with Flutter. It offers a seamless experience across Android and iOS platforms with a clean UI and robust features.
 
-## Features
+## Features( Iam still work in the project)
+-Splash Screen:define App logo.
+-onboarding Screens give breaf explanation to use app.
+#### Athountications
+-Login page.
+-SingUpPage.
+#### project layout
+-Home page: contain bottomNavigation with projct screen.
 
 
 ## Screen Shots for project
@@ -17,7 +24,6 @@ MyApp is a cross-platform app built with Flutter. It offers a seamless experienc
 <img src='https://github.com/user-attachments/assets/a2ce6031-cf7a-4978-baa1-9bda2495e063' alt="home screen" style='height: 300px; width: auto;  '>
 <img src='https://github.com/user-attachments/assets/58553b4c-a0ed-4f7f-98ff-ad75b415d89e' alt="home screen" style='height: 300px; width: auto;  '>
 <img src='https://github.com/user-attachments/assets/59da7b3b-cf33-4b58-a164-92d6a11018c1' alt="home screen" style='height: 300px; width: auto;  '>
-<img src='https://github.com/user-attachments/assets/868e5ce1-6e6d-4f25-b41a-2b64c54a882f' alt="home screen" style='height: 300px; width: auto;  '>
 
 
 
