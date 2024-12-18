@@ -31,7 +31,7 @@ Follow these steps to git clone the Weather App on your local machine:
 
 1. **Clone the Repository**
    ```
-   git clone https://github.com/alilotfy4321/weather_app.git
+   git clone https://github.com/alilotfy4321/Shop_App.git.git
     ```
 
 
