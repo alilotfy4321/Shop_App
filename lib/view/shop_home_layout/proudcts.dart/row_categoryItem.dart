@@ -12,6 +12,7 @@ class RowCategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       margin: EdgeInsets.all(5),
       height: 120.0,
       width: 120.0,
