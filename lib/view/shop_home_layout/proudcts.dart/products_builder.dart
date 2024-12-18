@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shop_app/model/shop_categories_model.dart';
 import 'package:shop_app/model/shop_home_model.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/vhSpace.dart';
 import 'package:shop_app/view/shop_home_layout/proudcts.dart/carousal_slider.dart';
@@ -8,9 +9,12 @@ import 'package:shop_app/view/shop_home_layout/proudcts.dart/proudcts_grid.dart'
 import 'package:shop_app/view/shop_home_layout/proudcts.dart/row_categoryItem.dart';
 
 class ProductsBuilder extends StatelessWidget {
-   ProductsBuilder(this.model,this.context,{Key? key}) : super(key: key);
+   ProductsBuilder(this.context,this.model,this.categoryModel,{Key? key}) : super(key: key);
   BuildContext context;
   ShopHomeModel model;
+  ShopCategoriesModel categoryModel;
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +35,8 @@ class ProductsBuilder extends StatelessWidget {
               height: 120,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (context, index) => RowCategoryItem(),
+                itemCount: categoryModel.data!.data.length,
+                itemBuilder: (context, index) => RowCategoryItem(categoryModel,index),
                 separatorBuilder: (context, index) => HSpace(width: 10),
               ),
             ),

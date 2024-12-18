@@ -16,7 +16,7 @@ class ShopHomeLayout extends StatelessWidget {
       builder: (context, state) {
         var cubit = ShopAppCubit.get(context);
         return Scaffold(
-          backgroundColor: Colors.teal[100],
+          backgroundColor: Colors.grey[200],
           appBar: AppBar(
             title: Text(
               'home layout',

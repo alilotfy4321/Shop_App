@@ -18,7 +18,7 @@ class ShopProducts extends StatelessWidget {
         var cubit = ShopAppCubit.get(context);
         return ConditionalBuilder(
           condition: cubit.homeModel != null,
-          builder: (context) => ProductsBuilder(cubit.homeModel!, context),
+          builder: (context) => ProductsBuilder(context,cubit.homeModel!,cubit.categoriesModel!),
           fallback: (context) => Center(child: CircularProgressIndicator()),
         );
       },

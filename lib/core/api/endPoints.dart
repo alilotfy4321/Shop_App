@@ -9,6 +9,7 @@ static String baseUrl = 'http://student.valuxapps.com/api/';
  static String signUp = '';
   //...getHome
   static String home = 'home';
+  static String categories = 'categories';
 }
 
 //----------the words that reapeted more than one--....
