@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,18 +23,31 @@ ThemeData lightTheme = ThemeData(
   ),
   textTheme: const TextTheme(
     headlineLarge: TextStyle(
-      color: Colors.teal,
+      color: Colors.black,
       fontSize: 20.0,
       fontWeight: FontWeight.bold,
     ),
+    headlineMedium: TextStyle(
+      color: Colors.black,
+      fontSize: 16.0,
+      fontWeight: FontWeight.bold,
+    ),
   ),
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.white,
+  bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+    backgroundColor: Colors.blue,
     elevation: 0.0,
     selectedIconTheme: IconThemeData(
       color: Colors.teal,
       size: 30.0,
+      
     ),
+    unselectedIconTheme: IconThemeData(
+      color: Colors.grey,
+      size: 30.0,
+      
+    ),
+    selectedItemColor: Colors.black,
+
     selectedLabelStyle: TextStyle(
       color: Colors.black,
     ),

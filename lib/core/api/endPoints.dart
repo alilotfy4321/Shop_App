@@ -7,7 +7,8 @@ static String baseUrl = 'http://student.valuxapps.com/api/';
  static String login = 'login';
 //---------------------'sign up'-------
  static String signUp = '';
-  //...ect
+  //...getHome
+  static String home = 'home';
 }
 
 //----------the words that reapeted more than one--....

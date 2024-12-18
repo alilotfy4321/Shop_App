@@ -19,14 +19,18 @@ class CachHelper {
     } else if (val is int) {
       print('the setCachdValue is: $val');
       return await prefs.setInt(key, val);
-    }else if (val is double) {
+    } else if (val is double) {
       print('the setCachdValue is: $val');
       return await prefs.setDouble(key, val);
     } else
       return false;
   }
 
-  static  getUserCachedValue({required String key}){
-    return  prefs.get(key);
-  } 
+  static getUserCachedValue({required String key}) {
+    return prefs.get(key);
+  }
+
+  static Future removeCachedDate(String key) async {
+    return await prefs.remove(key);
+  }
 }

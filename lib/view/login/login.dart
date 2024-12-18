@@ -14,6 +14,7 @@ import 'package:shop_app/shared_in_app/custom_widgets/customTextFormField.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/toastWidget.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/vhSpace.dart';
 import 'package:shop_app/shared_in_app/sharedpref.dart';
+import 'package:shop_app/view/shop_home_layout/proudcts.dart/products.dart';
 import 'package:shop_app/view/shop_home_layout/shop_home_layout.dart';
 import 'package:shop_app/view/signUp/signUP.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -25,13 +26,7 @@ class LoginPage extends StatelessWidget {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
 
-    return BlocProvider(
-        create: (context) => ShopLoginCubit(
-              DioConsumer(
-                dio: Dio(),
-              ),
-            ),
-        child: BlocConsumer<ShopLoginCubit, ShopLoginStates>(
+    return  BlocConsumer<ShopLoginCubit, ShopLoginStates>(
           listener: (context, state)async {
             if (state is ShopLoginSuccesState) {
               if (state.loginModel!.status!) {
@@ -206,6 +201,6 @@ class LoginPage extends StatelessWidget {
               ),
             );
           },
-        ));
+        );
   }
 }

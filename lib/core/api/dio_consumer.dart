@@ -41,7 +41,11 @@ class DioConsumer extends ApiConsumer {
   Future get(String path,
       {dynamic data,
       Map<String, dynamic>? queryParameter,
-      bool isFormData = false}) async {
+      bool isFormData = false,
+      String? token
+      
+      }) async {
+    dio.options.headers = {'Authorization': token??''};
     try {
       final response = await dio.get(
         path,
