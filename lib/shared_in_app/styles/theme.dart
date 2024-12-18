@@ -34,7 +34,7 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   bottomNavigationBarTheme:  BottomNavigationBarThemeData(
-    backgroundColor: Colors.blue,
+    //backgroundColor: const Color.fromARGB(255, 113, 121, 128),
     elevation: 0.0,
     selectedIconTheme: IconThemeData(
       color: Colors.teal,
@@ -72,10 +72,10 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.grey,
+    backgroundColor: Colors.black,
     elevation: 0.0,
     selectedIconTheme: IconThemeData(
-      color: Colors.blue,
+      color: Colors.white,
       size: 30.0,
     ),
     selectedLabelStyle: TextStyle(

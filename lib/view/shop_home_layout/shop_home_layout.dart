@@ -16,10 +16,11 @@ class ShopHomeLayout extends StatelessWidget {
       builder: (context, state) {
         var cubit = ShopAppCubit.get(context);
         return Scaffold(
+          backgroundColor: Colors.teal[100],
           appBar: AppBar(
             title: Text(
               'home layout',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             actions: [
               Padding(

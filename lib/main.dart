@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,  
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: ThemeMode.light,

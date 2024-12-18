@@ -41,7 +41,6 @@ dependencies:
   conditional_builder_null_safety:
   flutter_keyboard_visibility: 
   carousel_slider: 
-  cached_network_image:
 
 dev_dependencies:
   flutter_test:

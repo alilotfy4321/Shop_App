@@ -76,6 +76,7 @@ class Products {
     oldPrice = json['old_price'];
     discount = json['discount'];
     image = json['image'];
+    name = json['name'];
     description = json['description'];
     json['images'].forEach((image) {
       images?.add(image);
