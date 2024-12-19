@@ -10,6 +10,10 @@ static String baseUrl = 'http://student.valuxapps.com/api/';
   //...getHome
   static String home = 'home';
   static String categories = 'categories';
+    static String postFavorites = 'favorites?';
+    static String getFavorites = 'favorites';
+
+
 }
 
 //----------the words that reapeted more than one--....

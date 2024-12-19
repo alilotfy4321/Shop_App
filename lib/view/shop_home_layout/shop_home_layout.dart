@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors, unused_local_variable, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +19,7 @@ class ShopHomeLayout extends StatelessWidget {
           backgroundColor: Colors.grey[200],
           appBar: AppBar(
             title: Text(
-              'home layout',
+              '${cubit.appBarTitles[cubit.currentIndex]}',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             actions: [

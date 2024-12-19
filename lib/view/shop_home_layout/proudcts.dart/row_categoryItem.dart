@@ -24,6 +24,7 @@ class RowCategoryItem extends StatelessWidget {
             width: 120,
             fit: BoxFit.cover,
           ),
+        
           Align(
             alignment: Alignment.bottomCenter,
             child: Opacity(
