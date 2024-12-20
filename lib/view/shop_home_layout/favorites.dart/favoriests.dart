@@ -15,7 +15,7 @@ class FavoritesScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = ShopAppCubit.get(context);
-        var favorateList = cubit.getFavorites!.data!.data;
+        var favorateList = cubit.getFavorites?.data?.data??[];
         return ListView.builder(
             itemBuilder: (context, index) => ConditionalBuilder(
                 condition: state is! ShopAppGetFavoritesLoadingState,
@@ -45,7 +45,7 @@ class FavoritesScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
                               image: NetworkImage(
-                                  '${favorateList![index].product!.image!}'),
+                                  '${favorateList[index].product!.image!}'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -60,7 +60,7 @@ class FavoritesScreen extends StatelessWidget {
                                 if (favorateList[index].product!.discount !=
                                     0) //-showd oldprice or not
                                   Text(
-                                    '${favorateList[index].product!.oldPrice}',
+                                    '${favorateList[index].product!.oldPrice!}',
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium!
@@ -73,7 +73,7 @@ class FavoritesScreen extends StatelessWidget {
                                   ),
                                 HSpace(width: 5),
                                 Text(
-                                  '${favorateList[index].product!.price}',
+                                  '${favorateList[index].product!.price!}',
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!
@@ -90,7 +90,7 @@ class FavoritesScreen extends StatelessWidget {
                                 Container(
                                   width: 130,
                                   child: Text(
-                                    '${favorateList[index].product!.name}',
+                                    '${favorateList[index].product!.name!}',
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium,
@@ -124,7 +124,7 @@ class FavoritesScreen extends StatelessWidget {
                       ]),
                     ),
                 fallback: (context) => CircularProgressIndicator()),
-            itemCount: favorateList!.length);
+            itemCount: favorateList.length);
       },
     );
   }

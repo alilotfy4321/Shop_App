@@ -89,8 +89,8 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
       if (!favoratesModel!.status!) {
         //if some thing wrong return to previse color.
         favorites[productId] = !favorites[productId]!;
-      }else{
-             getFavoritesItems();//get the new data to show in screen
+      } else {
+        getFavoritesItems(); //get the new data to show in screen
       }
       emit(ShopAppFavoritesSuccessState(favoratesModel));
     } on ServerExeptions catch (e) {
@@ -103,9 +103,11 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
   getFavoritesItems() async {
     try {
       emit(ShopAppGetFavoritesLoadingState());
-      var response = await api.get(EndPoint.getFavorites);
-      getFavorites = GetFavorites.fromJson(response.data);
-      emit(ShopAppGetFavoritesSuccesState(getFavorites!));
+      await api.get(EndPoint.getFavorites).then((value) {
+        getFavorites = GetFavorites.fromJson(value.data);
+        print('get favoriteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee=${getFavorites.toString()}');
+        emit(ShopAppGetFavoritesSuccesState(getFavorites));
+      });
     } on ServerExeptions catch (e) {
       emit(ShopAppGetFavoritesErrorState(e.errorModel.errorMessage));
     }

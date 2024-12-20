@@ -15,18 +15,18 @@ class GetFavorites {
 }
 
 class Data {
-  int? currentPage;
+  num? currentPage;
   List<ProductsData>? data;
   String? firstPageUrl;
-  int? from;
-  int? lastPage;
+  num? from;
+  num? lastPage;
   String? lastPageUrl;
   String? nextPageUrl;
   String? path;
-  int? perPage;
+  num? perPage;
   String? prevPageUrl;
-  int? to;
-  int? total;
+  num? to;
+  num? total;
 
   Data(
       {this.currentPage,
@@ -66,7 +66,7 @@ class Data {
 }
 
 class ProductsData {
-  int? id;
+  num? id;
   Product? product;
 
   ProductsData({this.id, this.product});
@@ -81,10 +81,10 @@ class ProductsData {
 }
 
 class Product {
-  int? id;
-  int? price;
-  int? oldPrice;
-  int? discount;
+  num? id;
+  num? price;
+  num? oldPrice;
+  num? discount;
   String? image;
   String? name;
   String? description;
@@ -109,7 +109,7 @@ class Product {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
     data['id'] = this.id;
     data['price'] = this.price;
     data['old_price'] = this.oldPrice;
