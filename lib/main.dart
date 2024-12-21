@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/controll/bloc_observer.dart';
 import 'package:shop_app/controll/shop_app_cubit/shop_app_cubit.dart';
+import 'package:shop_app/controll/shop_app_register/register_cubit.dart';
 import 'package:shop_app/controll/shop_login/shop_login_cubit.dart';
 import 'package:shop_app/core/api/dio_consumer.dart';
+import 'package:shop_app/shared_in_app/constants/constant.dart';
 import 'package:shop_app/shared_in_app/sharedpref.dart';
 
 import 'package:shop_app/shared_in_app/styles/theme.dart';
@@ -20,7 +22,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CachHelper.init();
   bool? isOnboarding = (await CachHelper.getUserCachedValue(key: 'onboarding'));
-  String? token = (await CachHelper.getUserCachedValue(key: 'token'));
+   token = (await CachHelper.getUserCachedValue(key: 'token'));
   print('isOnboarding =$isOnboarding');
   print('token =$token');
   Widget widget;
@@ -53,9 +55,13 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) =>
               ShopLoginCubit(DioConsumer(dio: Dio())),
         ),
+          BlocProvider(
+          create: (BuildContext context) =>
+              ShopRegisterCubit(DioConsumer(dio: Dio())),
+        ),
         BlocProvider(
           create: (BuildContext context) =>
-              ShopAppCubit(DioConsumer(dio: Dio()))..getHomeData()..getCategoriesData()..getFavoritesItems(),
+              ShopAppCubit(DioConsumer(dio: Dio()))..getHomeData()..getCategoriesData()..getFavoritesItems()..getUserProfile(),
         ),
       ],
       child: MaterialApp(

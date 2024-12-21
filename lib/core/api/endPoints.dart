@@ -6,12 +6,14 @@ static String baseUrl = 'http://student.valuxapps.com/api/';
 //--------------------------------------'login'----------------
  static String login = 'login';
 //---------------------'sign up'-------
- static String signUp = '';
+ static String register = 'register';
   //...getHome
   static String home = 'home';
   static String categories = 'categories';
     static String postFavorites = 'favorites?';
     static String getFavorites = 'favorites';
+    static String getProfile = 'profile';
+
 
 
 }
@@ -23,10 +25,12 @@ class AppKeys {
   static String signInEmail = 'email';
   static String signInPassword = 'password';
   //-----sign up
-  static String signUpUserName = 'signUpUserName';
-  static String signUpEmail = 'signUpEmail';
-  static String signUpPhone = 'signUpPhone';
-  static String signUpPassword = 'Password';
+  static String registerName = 'name';
+  static String registerEmail = 'email';
+  static String registerPhone = 'phone';
+  static String registerPassword = 'password';
+    static String registerProfilePic = 'image';
+
   //------location
   static String location = 'location';
   static String profilePic = 'UploadprofilePic';

@@ -38,7 +38,7 @@ class ShopAppFavoritesErrorState extends ShopAppStates {
   ShopAppFavoritesErrorState(this.error);
 }
 
-//---------------------------------------------postFavorites---
+//---------------------------------------------getFavorites---
 class ShopAppGetFavoritesLoadingState extends ShopAppStates {}
 
 class ShopAppGetFavoritesSuccesState extends ShopAppStates {
@@ -49,4 +49,17 @@ class ShopAppGetFavoritesSuccesState extends ShopAppStates {
 class ShopAppGetFavoritesErrorState extends ShopAppStates {
   final error;
   ShopAppGetFavoritesErrorState(this.error);
+}
+
+//---------------------------------------------get profile ---
+class ShopAppGetProfileLoadingState extends ShopAppStates {}
+
+class ShopAppGetProfileSuccesState extends ShopAppStates {
+  UserProfileModel? getprofileModel;
+  ShopAppGetProfileSuccesState(this.getprofileModel);
+}
+
+class ShopAppGetProfileErrorState extends ShopAppStates {
+  final error;
+  ShopAppGetProfileErrorState(this.error);
 }

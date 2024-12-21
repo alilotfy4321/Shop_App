@@ -9,6 +9,7 @@ import 'package:shop_app/model/change_favorite_model.dart';
 import 'package:shop_app/model/get_favorites.dart';
 import 'package:shop_app/model/shop_categories_model.dart';
 import 'package:shop_app/model/shop_home_model.dart';
+import 'package:shop_app/model/user_profile_model.dart';
 import 'package:shop_app/view/shop_home_layout/categories.dart/categories.dart';
 import 'package:shop_app/view/shop_home_layout/favorites.dart/favoriests.dart';
 import 'package:shop_app/view/shop_home_layout/proudcts.dart/products.dart';
@@ -50,8 +51,6 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
       homeModel!.data!.products!.forEach((element) {
         favorites.addAll({element.id: element.inFavorites});
       });
-      print('====================favorate data=${favorites.toString()}');
-      print('====================home data=${homeModel!.status}');
 
       emit(ShopAppSuccessState());
     } on ServerExeptions catch (e) {
@@ -66,10 +65,7 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
     try {
       final response = await api.get(EndPoint.categories);
       categoriesModel = ShopCategoriesModel.fromJson(response.data);
-      print(
-          '==========================category status=${categoriesModel!.status}');
-      print(
-          '==========================category data=${categoriesModel!.data!.data[0].image}');
+      
       emit(ShopAppCategoriesSuccessState());
     } on ServerExeptions catch (e) {
       emit(ShopAppCategoriesErrorState(e.errorModel.errorMessage));
@@ -105,11 +101,23 @@ class ShopAppCubit extends Cubit<ShopAppStates> {
       emit(ShopAppGetFavoritesLoadingState());
       await api.get(EndPoint.getFavorites).then((value) {
         getFavorites = GetFavorites.fromJson(value.data);
-        print('get favoriteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee=${getFavorites.toString()}');
         emit(ShopAppGetFavoritesSuccesState(getFavorites));
       });
     } on ServerExeptions catch (e) {
       emit(ShopAppGetFavoritesErrorState(e.errorModel.errorMessage));
+    }
+  }
+  //--------getFavorites--------
+  UserProfileModel? getProfile;
+  getUserProfile() async {
+    try {
+      emit(ShopAppGetProfileLoadingState());
+      await api.get(EndPoint.getProfile).then((value) {
+        getProfile = UserProfileModel.fromJson(value.data);
+        emit(ShopAppGetProfileSuccesState(getProfile));
+      });
+    } on ServerExeptions catch (e) {
+      emit(ShopAppGetProfileErrorState(e.errorModel.errorMessage));
     }
   }
 }
