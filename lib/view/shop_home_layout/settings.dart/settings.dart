@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable, unnecessary_string_interpolations
 
+import 'dart:io';
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/controll/shop_app_cubit/shop_app_cubit.dart';
+import 'package:shop_app/shared_in_app/constants/constant.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/customButton.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/customTextFormField.dart';
 import 'package:shop_app/shared_in_app/custom_widgets/sign_out.dart';
@@ -23,6 +26,7 @@ class SettingsScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           var cubit = ShopAppCubit.get(context);
+          
           nameController.text = cubit.getProfile!.data!.name!;
           phoneController.text = cubit.getProfile!.data!.phone!;
           emailController.text = cubit.getProfile!.data!.email!;
@@ -31,10 +35,15 @@ class SettingsScreen extends StatelessWidget {
               builder: (cotext) => SingleChildScrollView(
                     child: Column(
                       children: [
+                        (profilePic == null)?CircleAvatar(
+                          radius: 50.0,
+                          backgroundImage:
+                              AssetImage('assets/images/Capture2.PNG'),
+                        ):
                         CircleAvatar(
                           radius: 50.0,
                           backgroundImage:
-                              NetworkImage('${cubit.getProfile!.data!.image!}'),
+                              FileImage(File(profilePic!.path)),
                         ),
                         VSpace(),
                         CustomTextFormField(

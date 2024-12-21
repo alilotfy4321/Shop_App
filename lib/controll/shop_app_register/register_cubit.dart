@@ -6,6 +6,7 @@ import 'package:shop_app/core/api/endPoints.dart';
 import 'package:shop_app/core/errors/exeptions.dart';
 import 'package:shop_app/core/functions/upload_image_to_api.dart';
 import 'package:shop_app/model/register_model.dart';
+import 'package:shop_app/shared_in_app/constants/constant.dart';
 
 part 'register_state.dart';
 
@@ -14,7 +15,7 @@ class ShopRegisterCubit extends Cubit<ShopAppRegisterStates> {
 
   ApiConsumer api;
   static ShopRegisterCubit get(context) => BlocProvider.of(context);
-  XFile? profilePic;
+  
   uploadProfilePic(XFile? image) {
     profilePic = image;
     emit(UploadProfilePicState());
@@ -45,7 +46,7 @@ class ShopRegisterCubit extends Cubit<ShopAppRegisterStates> {
       );
 
       registerModel = ShopRegisterModel.fromJson(response.data);
-
+      
       emit(ShopRegisterSuccesState(registerModel!));
     } on ServerExeptions catch (e) {
       emit(ShopRegisterErrorState(e.errorModel.errorMessage));

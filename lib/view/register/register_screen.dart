@@ -130,7 +130,7 @@ class RegisterScreen extends StatelessWidget {
                                 phone: phoneController.text,
                                 email: emailController.text,
                                 password: passwordController.text,
-                                image: cubit.profilePic!,
+                                image: profilePic!,
                               );
                               nameController.clear();
                               emailController.clear();

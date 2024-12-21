@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop_app/controll/shop_app_register/register_cubit.dart';
+import 'package:shop_app/shared_in_app/constants/constant.dart';
 
 class PicprofilePicWidget extends StatelessWidget {
   @override
@@ -17,12 +18,12 @@ class PicprofilePicWidget extends StatelessWidget {
 
         return Stack(children: [
           // Circular Avatar
-          (cubit.profilePic==null)?CircleAvatar(
+          (profilePic==null)?CircleAvatar(
             radius: 60,
             backgroundImage: AssetImage('assets/images/Capture1.PNG'),
           ):CircleAvatar(
             radius: 60,
-            backgroundImage: FileImage(File(cubit.profilePic!.path)),
+            backgroundImage: FileImage(File(profilePic!.path)),
           ),
           // Camera Icon Button
           Positioned(
